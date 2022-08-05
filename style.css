@@ -1,0 +1,88 @@
+body {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.buttonDel {
+    height: 20px;
+    width: 60px;
+}
+
+.images {
+    display: flex;
+    flex-wrap: wrap;
+    border: solid black 1px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.postElement {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    border: solid blue 2px;
+    border-radius: 5px;
+    width: 175px;
+    height: 250px;
+    align-items: center;
+    /* justify-content: flex-end; */
+    justify-content: center;
+    gap: 5px;
+    /* flex-grow: 1; */
+    /* max-width: 150px; */
+    /* max */
+}
+
+.postElement > .postTitle {
+    /* border: solid red 2px; */
+    display: flex;
+    flex: wrap;
+    /* align-items: center; */
+    margin: 2px;
+    text-align: center;
+    height: 50px;
+}
+
+.postElement > .postImg {
+    width: 150px;
+    height: 150px;
+    border-radius: 5px;
+}
+
+
+
+.head,
+.search,
+.input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.head {
+    top: 0px;
+    position: sticky;
+    background-color: aliceblue;
+    height: 5vh;
+}
+
+.input {
+    width: 70vw;
+    border: solid black 2px;
+    border-radius: 5px;
+}
+
+.input:hover {
+    border: dotted rgb(0, 187, 255) 1px;
+}
+
+.input:focus {
+    background-color: blueviolet;
+}
+
+.searchicon {
+    height: 20px;
+}
