@@ -14,9 +14,14 @@ const getData = async () => {
             // a.push(...response.data);
             // console.log(a);
         })
+        .catch(error => {
+            // console.log("axious in error");
+            console.log(error.response)
+        })
         printData(resp);
     } catch (error) {
-        console.log(error);
+        console.log(error.response);
+        // console.log("There was an error");
     }
 }
 
@@ -43,7 +48,7 @@ const printData = (input = []) => {
         buttonDel.innerText = "Delete";
         buttonDel.addEventListener("click", () => {
             const index = resp.findIndex(items => items == item);
-            console.log(index);
+            // console.log(index);
             postElement.remove();
             resp.splice(index, 1);
         })
@@ -60,7 +65,17 @@ const printData = (input = []) => {
         // Values
         // postID.innerText = item.id;
         postTitle.innerText = item.title;
+        
         postItem.src = item.thumbnailUrl;
+        postItem.addEventListener("error", () => {
+            console.log("error called");
+            postItem.src = "https://img-9gag-fun.9cache.com/photo/aqg28xv_700bwp.webp";
+        })
+
+        /* postItem.onerror = function() {
+            console.log("error called");
+            // postItem.src = "https://img-9gag-fun.9cache.com/photo/aqg28xv_700bwp.webp";
+        } */
 
         // Binding
         postElement.appendChild(postID);

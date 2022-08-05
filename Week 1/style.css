@@ -1,4 +1,5 @@
 body {
+    background-color: rgb(64, 105, 136);
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -12,7 +13,7 @@ body {
 .images {
     display: flex;
     flex-wrap: wrap;
-    border: solid black 1px;
+    /* border: solid black 1px; */
     flex-direction: row;
     align-items: center;
     justify-content: center;
@@ -23,8 +24,8 @@ body {
     display: flex;
     flex-direction: column;
     flex-wrap: nowrap;
-    border: solid blue 2px;
-    border-radius: 5px;
+    /* border: solid blue 2px; */
+    /* border-radius: 10px; */
     width: 175px;
     height: 250px;
     align-items: center;
@@ -34,6 +35,10 @@ body {
     /* flex-grow: 1; */
     /* max-width: 150px; */
     /* max */
+    /* Rainbow border */
+    border: 5px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
 }
 
 .postElement > .postTitle {
@@ -65,18 +70,25 @@ body {
 .head {
     top: 0px;
     position: sticky;
-    background-color: aliceblue;
+    background-color: rgb(110, 138, 160);
     height: 5vh;
 }
 
 .input {
     width: 70vw;
-    border: solid black 2px;
+    /* border: solid black 2px; */
     border-radius: 5px;
+    /* Rainbow border */
+    border: 2px solid transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
 }
 
 .input:hover {
-    border: dotted rgb(0, 187, 255) 1px;
+    /* border: dotted rgb(0, 187, 255) 1px; */
+    border: 2px dotted transparent;
+    border-image: linear-gradient(to bottom right, #b827fc 0%, #2c90fc 25%, #b8fd33 50%, #fec837 75%, #fd1892 100%);
+    border-image-slice: 1;
 }
 
 .input:focus {
@@ -85,4 +97,11 @@ body {
 
 .searchicon {
     height: 20px;
+}
+
+.footer {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
 }
