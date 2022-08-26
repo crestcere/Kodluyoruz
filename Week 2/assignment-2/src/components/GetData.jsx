@@ -9,27 +9,26 @@ const GetData = () => {
     const [search, setSearch] = useState("");
     const [selected, setSelected] = useState(null);
 
+
+    /* Get data from axios */
     const getJson = async () => {
         const resp = await axios
             .get("https://swapi.dev/api/people");
+        /* Assigning data from axios */    
         setData(resp.data.results);
         // console.log("resp", resp);
     };
 
-    const Searching = (a) => {
-        setSearch(a);
-        // console.log("Search: ", search);
-    }
+    // const Searching = (a) => {
+    //     setSearch(a);
+    //     // console.log("Search: ", search);
+    // }
 
-    // const filteredSearch = data.filter(item => item.name.toLowerCase().includes(search.toLowerCase()));
-    // const filteredSearch = data.filter(item => if (item.name.toLowerCase() == search && item.gender == "male") { filteredSearch.push(item) });
     const filteredSearch = [];
     data.forEach(element => {
-        // console.log(element);
-        // let a = (search !== null) ? ((element.name.toLowerCase().includes(search.toLowerCase()) && element.gender.includes(selected)) ? (element) : ("")) :
-        //     ((element.name.toLowerCase() == search.toLowerCase()) ? (element) : (""));
-        // let a = (element.name.toLowerCase() == search.toLowerCase()) ? (element) : (continue);
+        // If a variable includes
         if (element.name.toLowerCase().includes(search.toLowerCase())) {
+            // Check gender if it's selected continue to below
             if (selected != null) {
                 if (element.gender == selected.value) {
                     filteredSearch.push(element);
@@ -38,19 +37,22 @@ const GetData = () => {
                 filteredSearch.push(element);
             }
         }
-        // filteredSearch.push(a);
-        // if (element.name.toLowerCase() == search && )
     });
 
+    const deleteItem = (item) => {
+
+    }
 
     useEffect(() => {
         getJson();
     }, [])
 
-
     return (
         <div className="GetData">
-            <input type="search" name="search" id="search" placeholder="Search" value={search} onChange={(e) => Searching(e.target.value)} />
+            {/* Search input */}
+            <input type="search" name="search" id="search" placeholder="Search" value={search} onChange={(e) => setSearch(e.target.value)} />
+
+            {/* Select dropdown menu */}
             <Select
                 onChange={setSelected}
                 options={[
@@ -61,8 +63,14 @@ const GetData = () => {
                 placeholder="Pick Gender"
                 isClearable={true}
             />
+
+            {/* Printing data here with searched value */}
             {filteredSearch.map(item => (
-                <GetItem key={item.id} item={item} />
+                
+                <div>
+                    <GetItem key={item.id} item={item}/>
+                    <button className="DelButton" id="DelButton" onClick={() => {filteredSearch.pop()}}>Delete</button>
+                </div>
             ))}
         </div>
     );

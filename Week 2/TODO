@@ -1,11 +1,19 @@
 //TODO
-    Dropdown list
-        ? HTML select
-
+    Delete button
+        Mapta belirtilen elementi nasıl sileceğim?
+            GetItem üzerinden mi?
+            Dışardan mı?
+                data silenecek, useEffect kullanılsın mı?
+                element mi silinsin?
+            Dışardan yazarsam belirtilen elementi seçemiyorum.
+                    Delete butonunu listin altına koyamıyorum
 
 
 
 DONE:        
+    Dropdown list
+        ? HTML select
+            React drop down
     Search
         Yazılan searchi nasıl dataya aktarılıp ona göre sıralanacak
             Yeni bir const variable oluşturup for-Each döngüsünde Array.filter metodu kullanarak ayarladım.
@@ -28,3 +36,22 @@ DONE:
 
 
 Ödevler için classroom ortamı kuralacak ve burdan paylaşabileceksiniz bunun için bu ortamı hazırlayıp mailinize davet atıcağız.
+
+Data
+birth_year: "19BBY"
+created: "2014-12-09T13:50:51.644000Z"
+edited: "2014-12-20T21:17:56.891000Z"
+eye_color: "blue"
+films: (4) ['https://swapi.dev/api/films/1/', 'https://swapi.dev/api/films/2/', 'https://swapi.dev/api/films/3/', 'https://swapi.dev/api/films/6/']
+gender: "male"
+hair_color: "blond"
+height: "172"
+homeworld: "https://swapi.dev/api/planets/1/"
+mass: "77"
+name: "Luke Skywalker"
+skin_color: "fair"
+species: []
+starships: (2) ['https://swapi.dev/api/starships/12/', 'https://swapi.dev/api/starships/22/']
+url: "https://swapi.dev/api/people/1/"
+vehicles: (2) ['https://swapi.dev/api/vehicles/14/', 'https://swapi.dev/api/vehicles/30/']
+[[Prototype]]: Object
