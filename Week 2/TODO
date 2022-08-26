@@ -1,5 +1,10 @@
 //TODO
     Delete button
+        x Bir element silip aradıktan sonra crash veriyor
+        ? Hala elementin nasıl silindiğinden emin olamadım.        
+
+DONE:        
+    Delete button
         Mapta belirtilen elementi nasıl sileceğim?
             GetItem üzerinden mi?
             Dışardan mı?
@@ -7,10 +12,6 @@
                 element mi silinsin?
             Dışardan yazarsam belirtilen elementi seçemiyorum.
                     Delete butonunu listin altına koyamıyorum
-
-
-
-DONE:        
     Dropdown list
         ? HTML select
             React drop down

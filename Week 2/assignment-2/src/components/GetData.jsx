@@ -40,7 +40,7 @@ const GetData = () => {
     });
 
     const deleteItem = (item) => {
-
+        document.getElementById(item).remove();
     }
 
     useEffect(() => {
@@ -66,10 +66,9 @@ const GetData = () => {
 
             {/* Printing data here with searched value */}
             {filteredSearch.map(item => (
-                
-                <div>
+                <div  id={item.name}>
                     <GetItem key={item.id} item={item}/>
-                    <button className="DelButton" id="DelButton" onClick={() => {filteredSearch.pop()}}>Delete</button>
+                    <button className="DelButton" id="DelButton" onClick={() => {deleteItem(item.name)}}>Delete</button>
                 </div>
             ))}
         </div>
