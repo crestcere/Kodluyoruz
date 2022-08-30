@@ -8,7 +8,7 @@ const GetData = () => {
     const [data, setData] = useState([]);
     const [search, setSearch] = useState("");
     const [selected, setSelected] = useState(null);
-
+    const [filtered, setFiltered] = useState([]);
 
     /* Get data from axios */
     const getJson = async () => {
@@ -25,27 +25,44 @@ const GetData = () => {
     // }
 
     const filteredSearch = [];
-    data.forEach(element => {
-        // If a variable includes
-        if (element.name.toLowerCase().includes(search.toLowerCase())) {
-            // Check gender if it's selected continue to below
-            if (selected != null) {
-                if (element.gender == selected.value) {
+    const searching = () => {
+        data.forEach(element => {
+            // If a variable includes
+            if (element.name.toLowerCase().includes(search.toLowerCase())) {
+                // console.log("Element", element);
+                // Check gender if it's selected continue to below
+                if (selected != null) {
+                    if (element.gender == selected.value) {
+                        filteredSearch.push(element);
+                    }
+                } else {
                     filteredSearch.push(element);
                 }
-            } else {
-                filteredSearch.push(element);
             }
-        }
-    });
-
-    const deleteItem = (item) => {
-        document.getElementById(item).remove();
+        });
+        setFiltered(filteredSearch);
     }
 
+    const deleteItem = (item) => {
+        let a = data.indexOf(item);
+        let b = [...data];
+        b.splice(a, 1);
+        setData(b);
+        console.log(data);
+    }
+    
     useEffect(() => {
         getJson();
-    }, [])
+    }, []);
+
+    useEffect(() => {
+        searching();
+    }, [search]);
+
+    useEffect(() => {
+        searching();
+        // console.log("called data effect");
+    }, [data]);
 
     return (
         <div className="GetData">
@@ -65,10 +82,10 @@ const GetData = () => {
             />
 
             {/* Printing data here with searched value */}
-            {filteredSearch.map(item => (
-                <div  id={item.name}>
-                    <GetItem key={item.id} item={item}/>
-                    <button className="DelButton" id="DelButton" onClick={() => {deleteItem(item.name)}}>Delete</button>
+            {filtered.map(item => (
+                <div  key={item.name} class="GetData">
+                    <GetItem item={item}/>
+                    <button className="DelButton" id="DelButton" onClick={() => {deleteItem(item)}}>Delete</button>
                 </div>
             ))}
         </div>
