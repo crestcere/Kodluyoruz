@@ -1,9 +1,11 @@
 //TODO
+    Login
+    CSS
+    
+DONE:        
     Delete button
         x Bir element silip aradıktan sonra crash veriyor
         ? Hala elementin nasıl silindiğinden emin olamadım.        
-
-DONE:        
     Delete button
         Mapta belirtilen elementi nasıl sileceğim?
             GetItem üzerinden mi?
